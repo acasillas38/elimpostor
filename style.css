@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
+
+* {
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    width: 100vw;
+    margin: 0;
+}
+
+#unirse,
+#palabra,
+#timer,
+#votacion,
+#esperando,
+#mostrando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(255, 236, 186);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+#unirse {
+    display: flex;
+    flex-direction: column;
+}
+
+#unirField {
+    scale: 0;
+    transition: all 1s;
+    width: 300px;
+    height: 6%;
+    border: 4px solid rgb(160, 119, 14);
+    background-color: goldenrod;
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#unirse div,
+#unirFieldname {
+    scale: 1;
+    transition: all 1s;
+    width: 300px;
+    height: 6%;
+    border: 4px solid rgb(160, 119, 14);
+    background-color: goldenrod;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#esperando {
+    display: flex;
+    flex-direction: column;
+}
+
+#tbody tr {
+    scale: 1;
+    transition: all 1s;
+    width: 300px;
+    height: 50px;
+    border: 4px solid rgb(160, 119, 14);
+    background-color: goldenrod;
+    border-radius: 999px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#jugarBTN {
+    scale: 1;
+    transition: all 0.5s;
+    width: 300px;
+    height: 6%;
+    border: 4px solid rgb(160, 119, 14);
+    background-color: goldenrod;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#jugarBTN:hover,
+#crearBTN:hover,
+#unirBTN:hover {
+    scale: 1.05;
+    border: 4px solid goldenrod;
+    background-color: rgb(160, 119, 14);
+}
+
+#palabra,
+#mostrando,
+#votacion {
+    display: flex;
+    flex-direction: column;
+}
+
+#jugTitle {
+    font-size: 150%;
+}
+
+#idPartida {
+    font-size: 250%;
+}
+
+#contador,
+#quienERA {
+    font-size: 450%;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+#pasarAMostrar, #volverAJugar {
+    scale: 1;
+    transition: all 0.5s;
+    width: 300px;
+    height: 6%;
+    border: 4px solid rgb(160, 119, 14);
+    background-color: goldenrod;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+}
+
+#jugarBTN:hover,
+#crearBTN:hover,
+#unirBTN:hover,
+#pasarAMostrar:hover,
+#volverAJugar:hover {
+    scale: 1.05;
+    border: 4px solid goldenrod;
+    background-color: rgb(160, 119, 14);
+}
