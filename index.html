@@ -17,7 +17,7 @@
 <body>
     <div>
         <div id="mostrando">
-            <h1 >
+            <h1>
                 EL IMPOSTOR ERA
             </h1>
             <p id="quienERA">
@@ -29,9 +29,14 @@
         </div>
 
         <div id="votacion">
-            <h1 >
+            <h1>
                 LISTO PARA DESCUBIR<br>AL IMPOSTOR
             </h1>
+
+            <h1 id="jugadorQueEmpieza">
+
+            </h1>
+            
             <div id="pasarAMostrar">
                 Empezar
             </div>
@@ -45,6 +50,7 @@
                 AQUI SE MOSTRARA TU PALABRA
             </p>
             
+
         </div>
 
         <div id="esperando">
@@ -60,6 +66,47 @@
         </div>
 
         <div id="unirse">
+            <p id="comoSeJuega">
+                ?
+            </p>
+            <section id="comoSeJuegaPopOver">
+                <div>
+                    <h1>🕵️ EL IMPOSTOR 🕵️</h1>
+
+                    <p>
+                        Todos los jugadores reciben una palabra secreta...
+                        excepto uno.
+                    </p>
+
+                    <p>
+                        Ese jugador es el impostor.
+                    </p>
+
+                    <p>
+                        Por turnos, cada jugador debe decir una pista
+                        relacionada con la palabra sin decirla directamente.
+                    </p>
+
+                    <p>
+                        El impostor debe fingir que conoce la palabra
+                        mientras intenta descubrir cuál es.
+                    </p>
+
+                    <p>
+                        Después de escuchar todas las pistas,
+                        los jugadores votan quién creen que es el impostor.
+                    </p>
+
+                    <p>
+                        Si descubren al impostor, ganan los jugadores normales.
+                        Si no lo descubren, el impostor gana.
+                    </p>
+
+                    <h1>
+                        PULSA CUALQUIER LADO PARA SALIR
+                    </h1>
+                </div>
+            </section>
             <h1>El IMPOSTOR</h1>
             <input type="text" placeholder="Nombre" id="unirFieldname">
             <input type="number" placeholder="ID de la partida" id="unirField">

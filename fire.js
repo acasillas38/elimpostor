@@ -1,5 +1,5 @@
 import * as fs from "https://cdn.jsdelivr.net/gh/smx-m14/js@main/firestore.js";
-
+//URL DE JUEGO: https://acasillas38.github.io/elimpostor/
 $(function () {
     configureDatabase();
 
@@ -9,8 +9,45 @@ $(function () {
     var esHost = false;
     var idMaquinaActual = randomBetween(1, 1000);
     var idFinalPartida = 0;
-    var palabras = ["playa", "montaña", "pizza", "escuela", "perro", "gato", "coche", "avion", "movil", "ordenador", "fuego", "agua", "nieve", "lluvia", "sol", "luna", "estrella", "bosque", "rio", "mar", "isla", "ciudad", "pueblo", "hospital", "cine", "musica", "baile", "libro", "pelicula", "serie", "deporte", "futbol", "baloncesto", "tenis", "correr", "nadar", "comer", "beber", "cocina", "restaurante", "hotel", "viaje", "maleta", "dinero", "trabajo", "juego", "fiesta", "amigo", "familia", "amor"];
-    var pistas = ["bronceado", "altitud", "porción", "examen", "correa", "bigotes", "aparcamiento", "embarque", "notificaciones", "pestañas", "ceniza", "transparente", "copos", "charcos", "quemar", "menguante", "constelación", "hojarasca", "caudal", "marea", "aislada", "tráfico", "campanario", "urgencias", "butaca", "ritmo", "coreografía", "capítulo", "tráiler", "temporada", "competición", "penalti", "rebote", "saque", "resistencia", "braza", "menú", "trago", "receta", "camarero", "check-in", "escapada", "equipaje", "efectivo", "horario", "random", "after", "confidente", "apellidos", "química"];
+    // var palabras = ["silla", "espejo", "mochila", "cepillo de dientes", "cartera", "paraguas", "auriculares", "reloj", "aeropuerto", "biblioteca", "hospital", "playa", "centro comercial", "gimnasio", "escuela", "cocinar", "conducir", "bailar", "viajar", "dormir", "pizza", "café", "helado", "sushi", "hamburguesa", "pastel", "chocolate", "skibidi toilet", "sigma", "gigachad", "among us", "npc", "rizz", "fanum tax", "ohio", "goofy ahh", "mewing", "grimace shake", "capybara", "bombardino crocodilo", "tralalero tralala", "brawl stars", "minecraft", "fortnite", "roblox", "tiktok", "streamer", "discord", "youtube", "emoji"];
+    // var pistas = [
+    //     "madera", "luz", "viaje", "baño", "cuero",
+    //     "tormenta", "música", "tiempo", "aviones", "libros",
+    //     "doctores", "arena", "tiendas", "pesas", "clases",
+    //     "comida", "carretera", "ritmo", "mapa", "noche",
+    //     "queso", "energía", "frío", "arroz", "carne",
+    //     "cumpleaños", "dulce", "baño", "edits", "mandíbula",
+    //     "traición", "robot", "encanto", "comida", "caos",
+    //     "absurdo", "cara", "morado", "tranquilo", "italiano",
+    //     "lelele", "copas", "cubos", "skins", "robux",
+    //     "scroll", "directo", "llamada", "vídeos", "caritas"
+    // ];
+
+    var palabras = [
+        "messi", "cristiano ronaldo", "neymar", "mbappe", "haaland",
+        "vinicius jr", "bellingham", "pedri", "gavi", "lewandowski",
+        "modric", "kroos", "yamal", "ansu fati", "griezmann",
+        "benzema", "suarez", "de bruyne", "foden", "rodri",
+        "musiala", "wirtz", "salah", "mané", "rashford",
+        "bruno fernandes", "casemiro", "van dijk", "ruben dias", "ter stegen",
+        "courtois", "oblak", "donnarumma", "hakimi", "carvajal",
+        "araujo", "kounde", "camavinga", "valverde", "raphinha",
+        "joao felix", "isco", "dybala", "lautaro martinez", "di maria",
+        "julian alvarez", "enzo fernandez", "otamendi", "kane", "son"
+    ];
+    var pistas = [
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", ""
+    ];
+
 
     $("#jugarBTN, #volverAJugar, #pasarAMostrar").hide();
     var recargar = false;
@@ -95,6 +132,14 @@ $(function () {
         pasarAMostrarImpostor();
     })
 
+    $("#comoSeJuega").click(function () {
+        $("#comoSeJuegaPopOver").css("display", "flex");
+    });
+
+    $("#comoSeJuegaPopOver").click(function () {
+        $("#comoSeJuegaPopOver").css("display", "none");
+    })
+
     function crearJuego() {
         //fs.emptyCollection("partidas");
         var idPartida = randomBetween(0, 10000);
@@ -141,8 +186,13 @@ $(function () {
         });
         setTimeout(function () {
             palabraRandom = randomBetween(0, palabras.length - 1);
+
             imp = randomBetween(0, idsTodosParticipantes.length - 1);
             idImpostor = idsTodosParticipantes[imp];
+
+            var empiezaRandom = randomBetween(0, nameTodosParticipantes.length - 1);
+            var quienEmpieza = nameTodosParticipantes[empiezaRandom];
+            $("#jugadorQueEmpieza").text(`EMPIEZA: ${quienEmpieza}`);
             palabraFinal = palabras[palabraRandom];
             pistaFinal = pistas[palabraRandom];
 
@@ -151,7 +201,6 @@ $(function () {
                 var nameParticipanteActual = nameTodosParticipantes[i];
 
                 if (idImpostor == idParticipanteActual) {
-                    console.log("impostor");
                     fs.saveDocument("partidas/" + idFinalPartida + "/jugadores", idParticipanteActual, {
                         id: idParticipanteActual,
                         nom: nameParticipanteActual,
@@ -170,10 +219,6 @@ $(function () {
                         votos: 0,
                     });
                 }
-                console.log(idParticipanteActual);
-                console.log(nameParticipanteActual);
-                console.log("");
-
             }
         }, 400);
     }
